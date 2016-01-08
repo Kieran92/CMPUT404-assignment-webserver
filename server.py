@@ -32,7 +32,13 @@ class MyWebServer(SocketServer.BaseRequestHandler):
     def handle(self):
         self.data = self.request.recv(1024).strip()
         print ("Got a request of: %s\n" % self.data)
-        self.request.sendall("OK")
+        self.requestContent = self.data.split()
+        self.request.sendall("OK\n")
+        for value in range(len(self.requestContent)):
+            self.request.sendall(self.requestContent[value]+"\n")
+        self.request.sendall('\n\n\n'+self.data.upper())
+    #def serve(self):
+         
 
 if __name__ == "__main__":
     HOST, PORT = "localhost", 8080
