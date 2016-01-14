@@ -71,8 +71,8 @@ class MyWebServer(SocketServer.BaseRequestHandler):
             #self.request.sendall("It Works HTML\n")
             self.mimetype = 'text/html'
             self.valid = True
-	else:
-
+            
+        #else:
             #valid = False
              
         #self.request.sendall(self.directory+self.requestContent[1])
