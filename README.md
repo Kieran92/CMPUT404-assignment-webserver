@@ -29,15 +29,19 @@ http://www.acmesystems.it/python_httpd
 Author: Acmes Systems
 
 http://stackoverflow.com/questions/22083359/send-text-http-over-python-socket
+
 Author: holdenweb
 
 http://stackoverflow.com/questions/10114224/how-to-properly-send-http-response-with-python-using-socket-library-only
+
 Author:zmo
 
 http://stackoverflow.com/questions/8933237/how-to-find-if-directory-exists-in-python
+
 Author: Philipp Hagemeister
 
 https://en.wikipedia.org/wiki/HTTP_301
+
 Author: Wikimedia FOundation
 
 

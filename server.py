@@ -69,37 +69,37 @@ class MyWebServer(SocketServer.BaseRequestHandler):
 	    self.requestContent[1] = "/deep/index.html"
             self.valid = True
         '''
-	
+	#Checking if the request ends with a dash so that I can redirect to index.html of that
 	if self.requestContent[1].endswith("/"):
 	    self.requestContent[1]= self.requestContent[1]+"index.html"
 	    self.valid = True
 
 
-            
+        #if the mimetype is css it sets the mimetype to css   
         if self.requestContent[1].endswith(self.css_suffix):
 	    self.mimetype = 'text/css'
             self.valid = True
         elif self.requestContent[1].endswith(self.html_suffix):
-            #self.request.sendall("It Works HTML\n")
+            #if the mimetype is html it sets the mimetype to html
             self.mimetype = 'text/html'
             self.valid = True
+
 	elif not(self.requestContent[1].endswith("/")):
-	    print(self.requestContent[1])
+        #if there is no dash on the end then redirect to the proper folder 
 	    self.request.sendall('HTTP/1.1 301 Moved Permanently\r\n')
 	    self.request.sendall('Location: '+self.requestContent[1]+'/ \r\n\r\n')
 	    self.requestContent[1] = self.requestContent[1]+"/index.html"
-	    self.valid = True			
+	    self.valid = True
 
-        #self.request.sendall(self.directory+self.requestContent[1])
 	if self.valid == True and os.path.exists(self.directory+self.requestContent[1]):
-            #self.request.sendall("validFile\n")
+            #if the path exits and the has a valid mimetype you serve all the files 
             self.dirFile = open(self.directory+self.requestContent[1])
             self.request.sendall('HTTP/1.1 200 OK\r\n')
             self.request.sendall('Content-Type: '+self.mimetype+'\r\n\r\n')
-            #self.request.sendall(directory+self.requestContent[1])
             self.request.sendall(self.dirFile.read())
             self.dirFile.close()
         else:
+            #file is not found send a 404 error
             self.request.sendall('HTTP/1.1 404 Not Found\r\n')
             self.request.sendall('Content-Type: text/html\r\n\r\n')
             self.request.sendall('<html><body> <h1>ERROR 404 \n</h1> Path '+self.requestContent[1]+' Not Found</html></body>')
