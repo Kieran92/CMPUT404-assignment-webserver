@@ -26,6 +26,7 @@ compatible) http://docs.python.org/2/library/socketserver.html
 Referenced Code
 ===============
 http://www.acmesystems.it/python_httpd
+
 Author: Acmes Systems
 
 http://stackoverflow.com/questions/22083359/send-text-http-over-python-socket

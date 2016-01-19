@@ -5,7 +5,7 @@ import SocketServer, os
 #http://stackoverflow.com/questions/10114224/how-to-properly-send-http-response-with-python-using-socket-library-only
 #http://stackoverflow.com/questions/8933237/how-to-find-if-directory-exists-in-python
 #https://en.wikipedia.org/wiki/HTTP_301
-# Copyright 2016 Kieran Boyle
+# Copyright Abram Hindle, Eddie Antonio Santos Kieran Boyle
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
